@@ -77,13 +77,11 @@ export default {
       }
     },
     handleLogin() {
-      // eslint-disable-next-line no-unused-vars
-      // var userName = this.username
-      // eslint-disable-next-line no-unused-vars
-      // var userPwd = this.password
+      var username = '1'
+      var password = '2'
       this.$axios.post('/user/loginUser', {
-        username: '11',
-        password: '22'
+        username: username,
+        password: password
       }).then((response) => {
         var userMsg = response.data
         switch (userMsg.backInfo) {
