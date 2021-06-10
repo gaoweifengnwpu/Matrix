@@ -78,9 +78,9 @@ export default {
     },
     handleLogin() {
       // eslint-disable-next-line no-unused-vars
-      var userName = this.username
+      // var userName = this.username
       // eslint-disable-next-line no-unused-vars
-      var userPwd = this.password
+      // var userPwd = this.password
       this.$axios.post('/user/loginUser', {
         username: '11',
         password: '22'
