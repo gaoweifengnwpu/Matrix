@@ -6,6 +6,7 @@
       <h2>{{password}}</h2>
     <el-row>
     <el-button type="primary">login</el-button>
+      <el-button type="primary">login</el-button>
     </el-row>
   </div>
 </template>
