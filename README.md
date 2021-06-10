@@ -39,3 +39,5 @@ npm删除依赖
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+demo：
+https://blog.csdn.net/xiaojinlai123/article/details/90694372
