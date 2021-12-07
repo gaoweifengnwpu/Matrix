@@ -6,7 +6,7 @@
         ref="loginForm"
         label-position="left"
       >
-        <h2 class="login-title color-main">test</h2>
+        <h2 class="login-title color-main">login</h2>
         <el-form-item prop="username">
           <el-input
             name="username"
@@ -38,8 +38,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'admin1111',
-        password: '123456657567'
+        username: '1',
+        password: '1'
       },
       loading: false,
       pwdType: 'password'
@@ -48,22 +48,16 @@ export default {
   methods: {
     handleLogin() {
       var username = '1'
-      var password = '2'
-      this.$axios.post('/user/loginUser', {
-        username: username,
-        password: password
+      var password = '1'
+      this.$axios.post('http://192.73.1.15:8082/loginIn', {
+         username:username,
+         password:password,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
       }).then((response) => {
         var userMsg = response.data
-        switch (userMsg.backInfo) {
-          case '1':
-            alert('登录成功')
-            window.sessionStorage.userMsg = JSON.stringify(userMsg)
-            this.$router.push({name: 'ShopIndex'})
-            break
-          case '2':
-            alert('登录失败')
-            break
-        }
+        // alert(userMsg)
       })
     }
   }

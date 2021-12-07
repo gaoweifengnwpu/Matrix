@@ -4,12 +4,10 @@ import com.example.test.bean.UserBean;
 import com.example.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-@Controller
+import org.springframework.web.bind.annotation.*;
+//表示返回的是json格式的数据
+@RestController
+//@CrossOrigin
 public class LoginController {
 
     //将Service注入Web层
@@ -21,13 +19,15 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/loginIn",method = RequestMethod.POST)
-    public String login(String name,String password){
-        UserBean userBean = userService.loginIn(name,password);
+    @PostMapping(value = "/loginIn")
+    @CrossOrigin
+    public String login(String username, String password){
+    System.out.println(username+password);
+        UserBean userBean = userService.loginIn(username,password);
         if(userBean!=null){
-            return "success";
+            return "1";
         }else {
-            return "error";
+            return "2";
         }
     }
 }
