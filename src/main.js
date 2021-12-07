@@ -14,25 +14,25 @@ Vue.prototype.$axios = axios
 
 // axios 配置
 
-axios.defaults.timeout = 5000;
+// axios.defaults.timeout = 5000;
 
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 // 实例对象
-let instance = axios.create({
-  timeout: 6000,
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-})
+// let instance = axios.create({
+//   timeout: 6000,
+//   headers: {
+//     'Content-Type': 'application/x-www-form-urlencoded'
+//   }
+// })
 
 // 请求拦截器
-instance.interceptors.request.use(
-  config => {
-    config.data = qs.stringify(config.data) // 转为formdata数据格式
-    return config
-  },
-  error => Promise.error(error)
-)
+// instance.interceptors.request.use(
+//   config => {
+//     config.data = qs.stringify(config.data) // 转为formdata数据格式
+//     return config
+//   },
+//   error => Promise.error(error)
+// )
 //收不到数据
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // Vue.prototype.$axios = axios;

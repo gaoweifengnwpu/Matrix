@@ -38,8 +38,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: '1',
-        password: '1'
+        username: '输入账号',
+        password: '输入密码'
       },
       loading: false,
       pwdType: 'password'
@@ -49,13 +49,9 @@ export default {
     handleLogin() {
       var username = '1'
       var password = '1'
-      this.$axios.post('http://192.73.1.15:8082/loginIn', {
-         username:username,
-         password:password,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
-      }).then((response) => {
+      var dt = { username:username,  password:password }
+      this.$axios.post(
+        'http://192.73.1.15:8082/loginIn', this.qs.stringify(dt)).then((response) => {
         var userMsg = response.data
         // alert(userMsg)
       })
