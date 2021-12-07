@@ -1,17 +1,12 @@
-
 <template>
   <div>
-    <el-card class="login-form-layout">
       <el-form
         autocomplete="on"
         :model="loginForm"
         ref="loginForm"
         label-position="left"
       >
-        <div style="text-align: center">
-          <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
-        </div>
-        <h2 class="login-title color-main">mall-admin-web</h2>
+        <h2 class="login-title color-main">test</h2>
         <el-form-item prop="username">
           <el-input
             name="username"
@@ -25,23 +20,6 @@
             </span>
           </el-input>
         </el-form-item>
-        <el-form-item prop="password">
-          <el-input
-            name="password"
-            :type="pwdType"
-            @keyup.enter.native="handleLogin"
-            v-model="loginForm.password"
-            autocomplete="on"
-            placeholder="请输入密码"
-          >
-            <span slot="prefix">
-              <svg-icon icon-class="password" class="color-main"></svg-icon>
-            </span>
-            <span slot="suffix" @click="showPwd">
-              <svg-icon icon-class="eye" class="color-main"></svg-icon>
-            </span>
-          </el-input>
-        </el-form-item>
         <el-form-item style="margin-bottom: 60px">
           <el-button
             style="width: 100%"
@@ -51,7 +29,6 @@
           >登录</el-button>
         </el-form-item>
       </el-form>
-    </el-card>
   </div>
 </template>
 
@@ -61,21 +38,14 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        username: 'admin1111',
+        password: '123456657567'
       },
       loading: false,
       pwdType: 'password'
     }
   },
   methods: {
-    showPwd() {
-      if (this.pwdType === 'password') {
-        this.pwdType = ''
-      } else {
-        this.pwdType = 'password'
-      }
-    },
     handleLogin() {
       var username = '1'
       var password = '2'
