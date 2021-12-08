@@ -20,6 +20,19 @@
             </span>
           </el-input>
         </el-form-item>
+        <el-form-item prop="password">
+          <el-input
+            name="password"
+            type="text"
+            v-model="loginForm.password"
+            autocomplete="on"
+            placeholder="请输入密码"
+          >
+            <span slot="prefix">
+              <svg-icon icon-class="user" class="color-main"></svg-icon>
+            </span>
+          </el-input>
+        </el-form-item>
         <el-form-item style="margin-bottom: 60px">
           <el-button
             style="width: 100%"
@@ -47,9 +60,10 @@ export default {
   },
   methods: {
     handleLogin() {
-      var username = '1'
-      var password = '1'
-      var dt = { username:username,  password:password }
+      var username = this.loginForm.username
+      var password = this.loginForm.password
+      alert(password)
+      var dt = { username:username,password:password }
       this.$axios.post(
         'http://192.73.1.15:8082/loginIn', this.qs.stringify(dt)).then((response) => {
         var userMsg = response.data
