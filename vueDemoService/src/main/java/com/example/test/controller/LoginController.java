@@ -2,17 +2,21 @@ package com.example.test.controller;
 
 import com.example.test.bean.UserBean;
 import com.example.test.service.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 //表示返回的是json格式的数据
 @RestController
 //@CrossOrigin
 public class LoginController {
-
+    //    访问地址
+    //    http://192.168.2.11:8080/vueDemo/#/login
     //将Service注入Web层
     @Autowired
     private UserService userService;
@@ -43,5 +47,22 @@ public class LoginController {
         user.setPassword(password);
         int id = userService.register(user);
         return "register success";
+    }
+
+    @GetMapping(value = "/findUsers")
+    @CrossOrigin
+    public String findUsers() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<UserBean> list = userService.findUsers();
+        String users = null;
+        try {
+            System.out.println("gwf");
+            System.out.println(list.get(0).getId());
+            users = objectMapper.writeValueAsString(list);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        System.out.println(users);
+        return users.toString();
     }
 }
