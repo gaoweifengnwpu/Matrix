@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+
 //    http://192.168.2.11:8080/vueDemo/#/login
 @RestController
 public class FileUpload {
@@ -16,6 +17,7 @@ public class FileUpload {
     //    Spring Boot工程嵌入的tomcat限制了请求的文件大小
     @PostMapping("/upload")
     @CrossOrigin
+    //thymeleaf页面请求
 //    public String SingleFileUpLoad(@RequestParam("myfile") MultipartFile file) throws IOException {
     public String SingleFileUpLoad(MultipartFile file, HttpServletRequest req) throws IOException {
         //判断文件是否为空

@@ -1,47 +1,48 @@
 <template>
   <div>
-      <el-form
-        autocomplete="on"
-        :model="registerForm"
-        ref="registerForm"
-        label-position="left"
-      >
-        <h2 class="login-title color-main">Register</h2>
-        <el-form-item prop="username">
-          <el-input
-            name="username"
-            type="text"
-            v-model="registerForm.username"
-            autocomplete="on"
-            placeholder="请输入用户名"
-          >
+    <el-form
+      autocomplete="on"
+      :model="registerForm"
+      ref="registerForm"
+      label-position="left"
+    >
+      <h2 class="login-title color-main">Register</h2>
+      <el-form-item prop="username">
+        <el-input
+          name="username"
+          type="text"
+          v-model="registerForm.username"
+          autocomplete="on"
+          placeholder="请输入用户名"
+        >
             <span slot="prefix">
               <svg-icon icon-class="user" class="color-main"></svg-icon>
             </span>
-          </el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input
-            name="password"
-            type="text"
-            v-model="registerForm.password"
-            autocomplete="on"
-            placeholder="请输入密码"
-          >
+        </el-input>
+      </el-form-item>
+      <el-form-item prop="password">
+        <el-input
+          name="password"
+          type="text"
+          v-model="registerForm.password"
+          autocomplete="on"
+          placeholder="请输入密码"
+        >
             <span slot="prefix">
               <svg-icon icon-class="user" class="color-main"></svg-icon>
             </span>
-          </el-input>
-        </el-form-item>
-        <el-form-item style="margin-bottom: 60px">
-          <el-button
-            style="width: 100%"
-            type="primary"
-            :loading="loading"
-            @click.native.prevent="handleRegister"
-          >登录</el-button>
-        </el-form-item>
-      </el-form>
+        </el-input>
+      </el-form-item>
+      <el-form-item style="margin-bottom: 60px">
+        <el-button
+          style="width: 100%"
+          type="primary"
+          :loading="loading"
+          @click.native.prevent="handleRegister"
+        >注册
+        </el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -51,8 +52,8 @@ export default {
   data() {
     return {
       registerForm: {
-        username: '输入账号',
-        password: '输入密码'
+        username: '',
+        password: ''
       },
       loading: false,
       pwdType: 'password'
@@ -63,14 +64,15 @@ export default {
       var username = this.registerForm.username
       var password = this.registerForm.password
       // alert(password)
-      var dt = { username:username,password:password }
+      var dt = {username: username, password: password}
       this.$axios.post(
-        this.$api+'/register', this.qs.stringify(dt)).then((response) => {
+        this.$api + '/register', this.qs.stringify(dt)).then((response) => {
         var userMsg = response.data
         alert(userMsg)
       })
     }
   }
+
 }
 </script>
 

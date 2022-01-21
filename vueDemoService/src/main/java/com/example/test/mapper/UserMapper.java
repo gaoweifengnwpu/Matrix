@@ -18,5 +18,9 @@ public interface UserMapper {
 //  @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     int insetUser(UserBean user);
 
+    //查询全部用户
     List<UserBean> findUsers();
+
+    //分页查询用户
+    List<UserBean> selectPage();
 }

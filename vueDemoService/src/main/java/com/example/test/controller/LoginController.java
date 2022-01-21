@@ -2,8 +2,11 @@ package com.example.test.controller;
 
 import com.example.test.bean.UserBean;
 import com.example.test.service.UserService;
+import com.example.util.PageRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +23,7 @@ public class LoginController {
     //将Service注入Web层
     @Autowired
     private UserService userService;
+
 
     //  sqlmap -r sql.txt  -p username --dbs
     @PostMapping(value = "/loginIn")
@@ -65,4 +69,19 @@ public class LoginController {
         System.out.println(users);
         return users.toString();
     }
+
+    @GetMapping(value = "/findPage")
+    @CrossOrigin
+//    public Object findPage(@RequestBody PageRequest pageQuery) throws JsonProcessingException {
+    public String findPage(int pageSize, int pageNum) throws JsonProcessingException {
+        PageRequest pageQuery = new PageRequest();
+        System.out.println(pageSize);
+        System.out.println(pageNum);
+        pageQuery.setPageNum(pageNum);
+        pageQuery.setPageSize(pageSize);
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(objectMapper.writeValueAsString(userService.findPage(pageQuery)));
+        return objectMapper.writeValueAsString(userService.findPage(pageQuery));
+    }
+
 }

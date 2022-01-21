@@ -6,7 +6,11 @@ import Register from '../components/Register'
 import FileUpload from '../components/FileUpload'
 import Index from '../components/Index'
 import table from '../components/table'
-let commonUrl = "http://192.168.2.11:8082"
+import a from '../components/a'
+import b from '../components/b'
+import c from '../components/c'
+
+let commonUrl = 'http://192.168.2.3:8082'
 Vue.prototype.$api = commonUrl
 // Vue全局使用Router
 Vue.use(Router)
@@ -14,14 +18,15 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       components: {
+
         default: Login
       }
     },
     {
-      path: '/',
+      path: '/user',
       name: 'table',
       components: {
         default: table
@@ -42,11 +47,31 @@ export default new Router({
       }
     },
     {
+      path: '/c',
+      name: 'c',
+      components: {
+        default: table
+      }
+    },
+    {
       path: '/index',
-      name: 'Index',
+      name: 'index',
       components: {
         default: Index
-      }
+      },
+      children:
+        [
+          {
+            path: 'a',
+            name: 'a',
+            component: table
+          },
+          {
+            path: 'b',
+            name: 'b',
+            component: FileUpload
+          }
+        ]
     }
   ]
 })

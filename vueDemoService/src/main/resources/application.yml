@@ -10,3 +10,9 @@ server:
 mybatis:
   mapper-locations: classpath:mapper/*.xml  #配置映射文件
   type-aliases-package: com.example.test.bean #配置实体类
+# pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true  #开启优化，如果开启优化，在分页页码结果没有数据的时候,会显示有数据的页码数据
+  supportMethodsArguments: true #是否支持接口参数来传递分页参数，默认false
+  pageSizeZero: false #pageSize=0 返回所有
